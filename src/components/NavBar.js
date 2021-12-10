@@ -7,7 +7,10 @@ const NavBar = () => {
       <a>Meal type</a>
       <a>Shopping List</a>
       <a>Favourites</a>
-      <input placeholder="Search Recipes"></input>
+      <div id="inputDiv">
+        <input placeholder="Search Recipes" type="text"></input>
+        <i className="fa fa-search"></i>
+      </div>
     </nav>
   );
 };

@@ -5,3 +5,44 @@ img {
 #SearchArea {
   background-color: lightgray;
 }
+
+/* ------------------------------------------------------- */
+/* CSS FOR NAVIGATION BAR ONLY */
+
+nav {
+  display: flex;
+  background-color: white;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-family: "Amethysta", serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-weight: 500;
+  position: sticky;
+  top: 0;
+}
+
+nav a {
+  margin: 20px 25px 20px 25px;
+}
+
+nav #inputDiv {
+  height: 28px;
+  width: 160px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: none;
+  border-radius: 10px;
+  justify-content: space-between;
+}
+
+nav input {
+  width: 130px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  padding-left: 10px;
+}
+
+nav i {
+  width: 20px;
+}
