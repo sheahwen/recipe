@@ -40,6 +40,11 @@ nav input {
   padding-left: 10px;
 }
 
+nav input::placeholder {
+  text-decoration: underline;
+  font-size: 13px;
+}
+
 nav i {
   width: 20px;
   cursor: pointer;
@@ -109,23 +114,25 @@ nav i {
   text-align: center;
   font-weight: 300;
   border-radius: 6px;
+  padding-right: 5px;
 }
 
 .filterContainer #inputAdd {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 4px;
 }
 
 .filterContainer input {
   background-color: rgba(0, 0, 0, 0.1);
   width: 75%;
   margin-right: 6px;
-  height: 35px;
+  height: 33px;
   border: none;
 }
 
 .filterContainer input::placeholder {
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
   text-decoration: underline;
 }
@@ -134,7 +141,7 @@ nav i {
   background-color: rgba(147, 166, 66);
   font-size: 14px;
   color: white;
-  height: 33px;
+  height: 31px;
   width: 25%;
   border-radius: 6px;
   border: none;
@@ -163,9 +170,4 @@ nav i {
   border: rgba(0, 0, 0, 0.2) solid 1px;
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* to align the three search by columns */
-.col-6 .row {
-  margin: none;
 }

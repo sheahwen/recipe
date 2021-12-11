@@ -9,12 +9,26 @@ const SearchArea = () => {
       <p id="advancedText">Advanced Filters</p>
       <div className="container filterContainer">
         <div className="row">
-          {/* <div className="col-3 searchAttribute">Ingredients</div>
-          <div className="col-3 searchAttribute">Ingredients</div>
-          <div className="col-3 searchAttribute">Ingredients</div> */}
-          <IngredientsSearch></IngredientsSearch>
-          <DietSearch></DietSearch>
-          <MealTypeSearch></MealTypeSearch>
+          <div className="col-3">
+            <div className="searchBy">Ingredients</div>
+          </div>
+          <div className="col-3">
+            <div className="searchBy">Dietary Concerns</div>
+          </div>
+          <div className="col-6">
+            <div className="searchBy">Meal Type</div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-3">
+            <IngredientsSearch></IngredientsSearch>
+          </div>
+          <div className="col-3">
+            <DietSearch></DietSearch>
+          </div>
+          <div className="col-6">
+            <MealTypeSearch></MealTypeSearch>
+          </div>
         </div>
       </div>
       <button>Search</button>

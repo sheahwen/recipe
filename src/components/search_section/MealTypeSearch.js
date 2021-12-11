@@ -34,13 +34,12 @@ const MealTypeSearch = () => {
     );
   });
   return (
-    <div className="col-6">
-      <p className="searchBy">Meal Type</p>
+    <>
       <div className="row">
         <div className="col-6">{displayFirstHalf}</div>
         <div className="col-6">{displaySecondHalf}</div>
       </div>
-    </div>
+    </>
   );
 };
 
