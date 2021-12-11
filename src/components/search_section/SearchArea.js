@@ -5,11 +5,13 @@ import MealTypeSearch from "./MealTypeSearch";
 
 const SearchArea = () => {
   return (
-    <div id="SearchArea">
-      <p>New!</p>
-      <p>Advanced Filter</p>
-      <div className="container">
+    <div id="searchArea">
+      <p id="advancedText">Advanced Filters</p>
+      <div className="container filterContainer">
         <div className="row">
+          {/* <div className="col-3 searchAttribute">Ingredients</div>
+          <div className="col-3 searchAttribute">Ingredients</div>
+          <div className="col-3 searchAttribute">Ingredients</div> */}
           <IngredientsSearch></IngredientsSearch>
           <DietSearch></DietSearch>
           <MealTypeSearch></MealTypeSearch>

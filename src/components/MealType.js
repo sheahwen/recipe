@@ -1,5 +1,5 @@
 import React from "react";
-import MealTypeStatic from "./search_section/data/MealTypeStatic";
+import MealTypeStatic from "./data/MealTypeStatic";
 
 const MealType = () => {
   const breakfast = MealTypeStatic.filter((meal, index) => index < 3);

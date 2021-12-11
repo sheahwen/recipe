@@ -1,13 +1,45 @@
 import React from "react";
 
 const MealTypeSearch = () => {
+  const mealTypeArr = [
+    "main course",
+    "side dish",
+    "dessert",
+    "appetizer",
+    "salad",
+    "bread",
+    "breakfast",
+    "soup",
+    "beverage",
+    "sauce",
+    "marinade",
+    "fingerfood",
+    "snack",
+    "drink",
+  ];
+  const firstHalf = mealTypeArr.filter((type, index) => index < 7);
+  const secondHalf = mealTypeArr.filter((type, index) => index > 7);
+  const displayFirstHalf = firstHalf.map((type) => {
+    return (
+      <>
+        <p className="criteriaBullet">{type}</p>
+      </>
+    );
+  });
+  const displaySecondHalf = secondHalf.map((type) => {
+    return (
+      <>
+        <p className="criteriaBullet">{type}</p>
+      </>
+    );
+  });
   return (
-    <div className="col-sm-6">
-      <h1>Meal Type</h1>
-      <p>Main course</p>
-      <p>Side dish</p>
-      <p>Dessert</p>
-      <p>Salad</p>
+    <div className="col-6">
+      <p className="searchBy">Meal Type</p>
+      <div className="row">
+        <div className="col-6">{displayFirstHalf}</div>
+        <div className="col-6">{displaySecondHalf}</div>
+      </div>
     </div>
   );
 };

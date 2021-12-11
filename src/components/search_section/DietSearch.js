@@ -2,12 +2,12 @@ import React from "react";
 
 const DietSearch = () => {
   return (
-    <div className="col-sm-3">
-      <h1>Dietary Concerns</h1>
-      <p>Diebetic Friendly</p>
-      <p>Low cholesterol</p>
-      <p>Low calories</p>
-      <p>Vegetarian</p>
+    <div className="col-3">
+      <p className="searchBy">Dietary Concerns</p>
+      <p className="criteriaBullet">Diebetic Friendly</p>
+      <p className="criteriaBullet">Low cholesterol</p>
+      <p className="criteriaBullet">Low calories</p>
+      <p className="criteriaBullet">Vegetarian</p>
     </div>
   );
 };

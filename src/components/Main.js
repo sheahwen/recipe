@@ -33,9 +33,13 @@ const Main = () => {
   //   advancedFilterResult(url);
   // }, []);
   return (
-    <div>
-      <MealType></MealType>
-      <SearchArea></SearchArea>
+    <div className="container">
+      <div className="row">
+        <MealType></MealType>
+      </div>
+      <div className="row">
+        <SearchArea></SearchArea>
+      </div>
     </div>
   );
 };
