@@ -171,3 +171,128 @@ nav i {
   border-radius: 6px;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
 }
+
+/* ------------------------------------
+styling recipe */
+.recipe .img {
+  object-fit: fill;
+  margin: auto;
+}
+
+.recipe #testing {
+  background-color: lightgreen;
+}
+
+.recipe .recipeUpper {
+  border: 2px black solid;
+}
+
+.recipe #recipeTitle {
+  font-weight: 500;
+  font-size: 25px;
+  text-align: left;
+}
+
+#timeServing {
+  margin-right: 50px;
+}
+
+.recipe #timeServing div {
+  margin-bottom: 3px;
+}
+
+.recipe #timeServing i {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+.recipe #timeServing p {
+  display: inline;
+}
+
+/* ------------------------------
+STYLING RADAR CHART */
+
+.chartBg {
+  width: 150px;
+  height: 150px;
+  top: 11.8%;
+  left: 18%;
+  position: relative;
+  background-image: url("./components/circle_for_chart.jpg");
+  background-size: 150px 150px;
+}
+
+.chartContainer {
+  top: 0%;
+  left: 0%;
+  margin: auto;
+  position: relative;
+  width: 127px;
+  height: 150px;
+}
+
+.starform {
+  margin: auto;
+  width: 127px;
+  height: 150px;
+  position: absolute;
+}
+
+.in {
+  background-color: rgba(180, 140, 89, 0.7);
+}
+
+.chart {
+  width: 240px;
+  height: 200px;
+}
+.chartTastes {
+  display: inline;
+  position: absolute;
+  font-size: 12px;
+}
+
+#tasteSweet {
+  position: relative;
+  left: 102px;
+}
+#tasteSalty {
+  position: relative;
+  top: 16px;
+  left: 193px;
+}
+#tasteSour {
+  position: relative;
+  top: 58px;
+  left: 193px;
+}
+#tasteBitter {
+  position: relative;
+  top: 72px;
+  left: 104px;
+}
+#tasteSavoury {
+  position: relative;
+  top: -9px;
+  left: 0px;
+}
+#tasteFatty {
+  position: relative;
+  top: -120px;
+  left: 13px;
+}
+
+/* -------------------------------
+STYLE TIMESERVING AND CHART */
+.timeChart {
+  display: flex;
+}
+
+/* -----------------------------
+STYLE INGREDIENT LIST IN RECIPE */
+.ingredientContainer h2 {
+  font-weight: 400;
+  font-size: 25px;
+  text-align: left;
+}

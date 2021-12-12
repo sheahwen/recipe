@@ -1,16 +1,308 @@
 const MealTypeStatic = [
   {
     aggregateLikes: 1928,
+
     analyzedInstructions: [
-      [
-        {
-          equipment: [],
-          ingredients: ["strawberry", "milk"],
-          number: 1,
-          step: "stepname",
-        },
-      ],
-    ], //includes steps but ignore it for now
+      {
+        name: "",
+        steps: [
+          {
+            number: 1,
+            step: "How to Make Strawberry Creme Cheese Filling",
+            ingredients: [
+              {
+                id: 9316,
+                name: "strawberries",
+                localizedName: "strawberries",
+                image: "strawberries.png",
+              },
+              {
+                id: 1041009,
+                name: "cheese",
+                localizedName: "cheese",
+                image: "cheddar-cheese.png",
+              },
+            ],
+            equipment: [],
+          },
+          {
+            number: 2,
+            step: "Add cream cheese, strawberries, vanilla extract, lemon juice, and granulated sugar into a medium-sized mixing bowl.",
+            ingredients: [
+              {
+                id: 10719335,
+                name: "granulated sugar",
+                localizedName: "granulated sugar",
+                image: "sugar-in-bowl.png",
+              },
+              {
+                id: 2050,
+                name: "vanilla extract",
+                localizedName: "vanilla extract",
+                image: "vanilla-extract.jpg",
+              },
+              {
+                id: 1017,
+                name: "cream cheese",
+                localizedName: "cream cheese",
+                image: "cream-cheese.jpg",
+              },
+              {
+                id: 9316,
+                name: "strawberries",
+                localizedName: "strawberries",
+                image: "strawberries.png",
+              },
+              {
+                id: 9152,
+                name: "lemon juice",
+                localizedName: "lemon juice",
+                image: "lemon-juice.jpg",
+              },
+            ],
+            equipment: [
+              {
+                id: 405907,
+                name: "mixing bowl",
+                localizedName: "mixing bowl",
+                image: "mixing-bowl.jpg",
+              },
+            ],
+          },
+          {
+            number: 3,
+            step: "Use a hand mixer, wooden spoon, or spatula to mix ingredients.",
+            ingredients: [],
+            equipment: [
+              {
+                id: 404732,
+                name: "wooden spoon",
+                localizedName: "wooden spoon",
+                image: "wooden-spoon.jpg",
+              },
+              {
+                id: 404628,
+                name: "hand mixer",
+                localizedName: "hand mixer",
+                image: "hand-mixer.png",
+              },
+              {
+                id: 404642,
+                name: "spatula",
+                localizedName: "spatula",
+                image: "spatula-or-turner.jpg",
+              },
+            ],
+          },
+          {
+            number: 4,
+            step: "Mix until smooth.",
+            ingredients: [],
+            equipment: [],
+          },
+          {
+            number: 5,
+            step: "Set aside.",
+            ingredients: [],
+            equipment: [],
+          },
+          {
+            number: 6,
+            step: "How to Blend Chocolate Crepes Ingredients",
+            ingredients: [
+              {
+                id: 19081,
+                name: "chocolate",
+                localizedName: "chocolate",
+                image: "milk-chocolate.jpg",
+              },
+              {
+                id: 93732,
+                name: "crepes",
+                localizedName: "crepes",
+                image: "crepes-isolated.jpg",
+              },
+            ],
+            equipment: [],
+          },
+          {
+            number: 7,
+            step: "Combine flour, sugar, cocoa powder, salt, and eggs to a food processor or blender.",
+            ingredients: [
+              {
+                id: 19165,
+                name: "cocoa powder",
+                localizedName: "cocoa powder",
+                image: "cocoa-powder.png",
+              },
+              {
+                id: 20081,
+                name: "all purpose flour",
+                localizedName: "all purpose flour",
+                image: "flour.png",
+              },
+              {
+                id: 19335,
+                name: "sugar",
+                localizedName: "sugar",
+                image: "sugar-in-bowl.png",
+              },
+              {
+                id: 1123,
+                name: "egg",
+                localizedName: "egg",
+                image: "egg.png",
+              },
+              {
+                id: 2047,
+                name: "salt",
+                localizedName: "salt",
+                image: "salt.jpg",
+              },
+            ],
+            equipment: [
+              {
+                id: 404771,
+                name: "food processor",
+                localizedName: "food processor",
+                image: "food-processor.png",
+              },
+              {
+                id: 404726,
+                name: "blender",
+                localizedName: "blender",
+                image: "blender.png",
+              },
+            ],
+          },
+          {
+            number: 8,
+            step: "If using a food processor, keep it running as you add milk and water. Continue to pulse intil blended well.",
+            ingredients: [
+              {
+                id: 14412,
+                name: "water",
+                localizedName: "water",
+                image: "water.png",
+              },
+              {
+                id: 1077,
+                name: "milk",
+                localizedName: "milk",
+                image: "milk.png",
+              },
+            ],
+            equipment: [
+              {
+                id: 404771,
+                name: "food processor",
+                localizedName: "food processor",
+                image: "food-processor.png",
+              },
+            ],
+          },
+          {
+            number: 9,
+            step: "Pour in melted butter and vanilla extract.",
+            ingredients: [
+              {
+                id: 2050,
+                name: "vanilla extract",
+                localizedName: "vanilla extract",
+                image: "vanilla-extract.jpg",
+              },
+              {
+                id: 1001,
+                name: "butter",
+                localizedName: "butter",
+                image: "butter-sliced.jpg",
+              },
+            ],
+            equipment: [],
+          },
+          {
+            number: 10,
+            step: "Set bowl aside.",
+            ingredients: [],
+            equipment: [
+              {
+                id: 404783,
+                name: "bowl",
+                localizedName: "bowl",
+                image: "bowl.jpg",
+              },
+            ],
+          },
+          {
+            number: 11,
+            step: "How to Make Chocolate Crepes",
+            ingredients: [
+              {
+                id: 19081,
+                name: "chocolate",
+                localizedName: "chocolate",
+                image: "milk-chocolate.jpg",
+              },
+              {
+                id: 93732,
+                name: "crepes",
+                localizedName: "crepes",
+                image: "crepes-isolated.jpg",
+              },
+            ],
+            equipment: [],
+          },
+          {
+            number: 12,
+            step: 'Heat crepe pan or 8"-10" omelet pan over medium heat.',
+            ingredients: [],
+            equipment: [
+              {
+                id: 404645,
+                name: "frying pan",
+                localizedName: "frying pan",
+                image: "pan.png",
+              },
+            ],
+          },
+          {
+            number: 13,
+            step: "Pour 1/4 cup of batter directly into the middle of the pan and swirl to cover the bottom.",
+            ingredients: [],
+            equipment: [
+              {
+                id: 404645,
+                name: "frying pan",
+                localizedName: "frying pan",
+                image: "pan.png",
+              },
+            ],
+          },
+          {
+            number: 14,
+            step: "Cook the crepe for 2-3 minutes or until the bottom is light brown and the edges are completely set.",
+            ingredients: [],
+            equipment: [],
+            length: {
+              number: 3,
+              unit: "minutes",
+            },
+          },
+          {
+            number: 15,
+            step: "Flip the crepe over and cook for an additional minute.",
+            ingredients: [],
+            equipment: [],
+          },
+          {
+            number: 16,
+            step: "Transfer to a serving platter and repeat for the rest of the batter.",
+            ingredients: [],
+            equipment: [],
+          },
+        ],
+      },
+    ],
     cheap: false,
     cookingMinutes: 20,
     creditsText: "Jen West",
