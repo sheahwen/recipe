@@ -316,3 +316,43 @@ STYLE SEARCH RESULT PAGE */
 .searchResultsContainer {
   margin-top: 30px;
 }
+
+/* ------------------------------------
+STYLE CARD OVERLAY */
+.imageContainer {
+  position: relative;
+}
+
+.imageContainer img {
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.imageContainer .overlay {
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -150%);
+  /* -ms-transform: translate(-50%, -50%); */
+  text-align: center;
+  transition: 0.5s ease;
+}
+
+.imageContainer:hover img {
+  opacity: 0.3;
+}
+.imageContainer:hover .overlay {
+  opacity: 1;
+  width: 160px;
+}
+.text {
+  background-color: rgba(43, 75, 64);
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  color: white;
+  height: 40px;
+  padding-top: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}

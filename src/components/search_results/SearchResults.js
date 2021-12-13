@@ -18,14 +18,14 @@ const SearchResults = (props) => {
     setQueryResults(parsedData.results);
   };
 
-  useEffect(() => {
-    if (inputSearch !== "") {
-      const url = GetDataUrl(searchType, inputSearch);
-      console.log(url);
-      console.log("ran 1 time");
-      getResults(url);
-    }
-  }, [inputSearch]);
+  // useEffect(() => {
+  //   if (inputSearch !== "") {
+  //     const url = GetDataUrl(searchType, inputSearch);
+  //     console.log(url);
+  //     console.log("ran 1 time");
+  //     getResults(url);
+  //   }
+  // }, [inputSearch]);
 
   // PRINTING CARDS
   const createCardsTop = queryResults.map((recipe, index) => {
