@@ -2,14 +2,12 @@ import React from "react";
 import MealTypeStatic from "../data/MealTypeStatic";
 import Ingredient from "./Ingredient";
 import RadarChart from "./RadarChart";
+import Steps from "./Steps";
 
 const Recipe = () => {
   const recipeObj = MealTypeStatic[0];
   const stepsObj = recipeObj.analyzedInstructions[0].steps;
 
-  const printSteps = stepsObj.map((eachStep) => {
-    return <li>{eachStep.step}</li>;
-  });
   return (
     <>
       <div className="container recipe">
@@ -42,8 +40,7 @@ const Recipe = () => {
           <Ingredient></Ingredient>
         </div>
         <div className="row">
-          <ol>Steps</ol>
-          {printSteps}
+          <Steps stepsData={stepsObj}></Steps>
         </div>
       </div>
     </>

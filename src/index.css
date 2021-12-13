@@ -309,6 +309,16 @@ STYLE INGREDIENT LIST IN RECIPE */
   text-align: left;
 }
 
+/* -----------------------------
+STYLE STEPS IN RECIPE */
+.stepsContainer ol {
+  font-weight: 500;
+}
+
+.stepsContainer li {
+  font-weight: 300;
+}
+
 /* ------------------------------
 STYLE SEARCH RESULT PAGE */
 .searchResultsContainer span {
