@@ -182,7 +182,6 @@ styling recipe */
 
 .recipe img {
   width: 100%;
-  background-color: lightgreen;
 }
 
 .recipe .recipeUpper {
@@ -294,9 +293,19 @@ STYLE TIMESERVING AND CHART */
 
 /* -----------------------------
 STYLE INGREDIENT LIST IN RECIPE */
-.ingredientContainer h2 {
-  font-weight: 400;
-  font-size: 25px;
+.ingredientContainer {
+  margin-top: 40px;
+}
+
+.ingredientContainer .cart {
+  padding-left: 20px;
+}
+
+.ingredientQuantity {
+  text-align: center;
+}
+
+.ingredientUnit {
   text-align: left;
 }
 
