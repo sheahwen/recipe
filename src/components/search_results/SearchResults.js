@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 import searchResults from "../../store/searchResults";
+import GetDataUrl from "../../hooks/GetDataUrl";
 
 const SearchResults = (props) => {
   const dispatch = useDispatch();
@@ -10,24 +11,6 @@ const SearchResults = (props) => {
   const [queryResults, setQueryResults] = useState([]);
 
   // CALLING API TO GET SEARCH RESULTS
-  const generateUrl = () => {
-    const SEARCHURL = "https://api.spoonacular.com/recipes/";
-    const APIKEY = "66f8a7f03d564fb9967240266bb00633";
-    const searchType = "complexSearch?";
-    const queryStr = "query=" + inputSearch;
-    const NUMBER = "&number=6";
-    const DETAILS = "&addRecipeInformation=true";
-    const url =
-      SEARCHURL +
-      searchType +
-      "apiKey=" +
-      APIKEY +
-      "&" +
-      queryStr +
-      NUMBER +
-      DETAILS;
-    return url;
-  };
 
   const getResults = async (url) => {
     const data = await fetch(url);
@@ -36,10 +19,13 @@ const SearchResults = (props) => {
   };
 
   useEffect(() => {
-    const url = generateUrl();
-    console.log("ran 1 time");
-    getResults(url);
-  }, []);
+    if (inputSearch !== "") {
+      const url = GetDataUrl(searchType, inputSearch);
+      console.log(url);
+      console.log("ran 1 time");
+      getResults(url);
+    }
+  }, [inputSearch]);
 
   // PRINTING CARDS
   const createCardsTop = queryResults.map((recipe, index) => {
@@ -75,14 +61,12 @@ const SearchResults = (props) => {
     }
   };
   const titleSpan = titleSpanFunction();
-  console.log(inputSearch);
-  console.log(titleSpan);
 
   return (
     <div className="container searchResultsContainer">
       <div className="row">
         <h1>
-          Search results for: <span>{titleSpan}</span>
+          Search result(s) for: <span>{titleSpan}</span>
         </h1>
       </div>
       <div className="row">{createCardsTop}</div>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inputSearchActions } from "../store/inputSearch";
 import { inputSuggestionsActions } from "../store/inputSuggestions";
-import searchType, { searchTypeActions } from "../store/searchType";
+import { searchTypeActions } from "../store/searchType";
 import { NavLink } from "react-router-dom";
 
 const NavBar = () => {

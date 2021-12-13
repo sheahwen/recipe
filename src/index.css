@@ -305,9 +305,14 @@ STYLE SEARCH RESULT PAGE */
   font-weight: 800;
   font-size: 50px;
   font-family: "Amethysta", serif;
+  color: rgba(43, 75, 64);
 }
 
 .searchResultsContainer h2 {
   font-weight: 400;
   font-size: 50px;
+}
+
+.searchResultsContainer {
+  margin-top: 30px;
 }

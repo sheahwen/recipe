@@ -18,7 +18,7 @@ const Card = (props) => {
   // END
 
   return (
-    <div className="eachImage col" id={props.id}>
+    <div className="eachImage col-4" id={props.id}>
       <img src={props.image}></img>
       <p className="cuisines">{cuisineStr}</p>
       <p className="title">{props.title}</p>
