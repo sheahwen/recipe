@@ -26,7 +26,6 @@ const SearchResults = (props) => {
       queryStr +
       NUMBER +
       DETAILS;
-    console.log(url);
     return url;
   };
 
@@ -36,10 +35,11 @@ const SearchResults = (props) => {
     setQueryResults(parsedData.results);
   };
 
-  // useEffect(() => {
-  //   const url = generateUrl();
-  //   getResults(url);
-  // }, []);
+  useEffect(() => {
+    const url = generateUrl();
+    console.log("ran 1 time");
+    getResults(url);
+  }, []);
 
   // PRINTING CARDS
   const createCardsTop = queryResults.map((recipe, index) => {
@@ -75,13 +75,14 @@ const SearchResults = (props) => {
     }
   };
   const titleSpan = titleSpanFunction();
+  console.log(inputSearch);
+  console.log(titleSpan);
 
   return (
-    <div className="container">
+    <div className="container searchResultsContainer">
       <div className="row">
         <h1>
           Search results for: <span>{titleSpan}</span>
-          {inputSearch}
         </h1>
       </div>
       <div className="row">{createCardsTop}</div>

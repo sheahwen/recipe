@@ -20,12 +20,14 @@ nav {
 
 nav a {
   margin: 20px 25px 20px 25px;
+  color: black;
+  text-decoration: none;
   cursor: pointer;
 }
 
 nav #inputDiv {
   height: 28px;
-  width: 160px;
+  width: 200px;
   background-color: rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 10px;
@@ -295,4 +297,17 @@ STYLE INGREDIENT LIST IN RECIPE */
   font-weight: 400;
   font-size: 25px;
   text-align: left;
+}
+
+/* ------------------------------
+STYLE SEARCH RESULT PAGE */
+.searchResultsContainer span {
+  font-weight: 800;
+  font-size: 50px;
+  font-family: "Amethysta", serif;
+}
+
+.searchResultsContainer h2 {
+  font-weight: 400;
+  font-size: 50px;
 }

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { inputSearchActions } from "../store/inputSearch";
 import { inputSuggestionsActions } from "../store/inputSuggestions";
 import searchType, { searchTypeActions } from "../store/searchType";
+import { NavLink } from "react-router-dom";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -23,10 +24,10 @@ const NavBar = () => {
 
   return (
     <nav>
-      <a>Home</a>
-      <a>Meal type</a>
-      <a>Shopping List</a>
-      <a>Favourites</a>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/meal-type">Meal type</NavLink>
+      <NavLink to="/shopping-list">Shopping List</NavLink>
+      <NavLink to="/favorites">Favourites</NavLink>
       <div id="inputDiv">
         <input
           placeholder="Search Recipes"
@@ -34,7 +35,9 @@ const NavBar = () => {
           value={input}
           onChange={handleInputChange}
         ></input>
-        <i className="fa fa-search" onClick={updateInput}></i>
+        <NavLink to="/search-results">
+          <i className="fa fa-search" onClick={updateInput}></i>
+        </NavLink>
       </div>
     </nav>
   );
