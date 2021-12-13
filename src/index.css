@@ -176,12 +176,12 @@ nav i {
 
 /* ------------------------------------
 styling recipe */
-.recipe .img {
-  object-fit: fill;
-  margin: auto;
+.recipe {
+  margin-top: 30px;
 }
 
-.recipe #testing {
+.recipe img {
+  width: 100%;
   background-color: lightgreen;
 }
 
@@ -196,11 +196,12 @@ styling recipe */
 }
 
 #timeServing {
-  margin-right: 50px;
+  margin-right: 70px;
+  margin-top: 30px;
 }
 
 .recipe #timeServing div {
-  margin-bottom: 3px;
+  margin-bottom: 18px;
 }
 
 .recipe #timeServing i {

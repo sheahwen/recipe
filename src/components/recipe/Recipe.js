@@ -36,8 +36,10 @@ const Recipe = () => {
               </div>
               <RadarChart></RadarChart>
             </div>
-            <Ingredient></Ingredient>
           </div>
+        </div>
+        <div className="row ingredients">
+          <Ingredient></Ingredient>
         </div>
         <div className="row">
           <ol>Steps</ol>
