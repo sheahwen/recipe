@@ -1,19 +1,17 @@
 import React from "react";
 import MealTypeStatic from "./data/MealTypeStatic";
+import Card from "./Card";
 
 const MealType = () => {
   const breakfast = MealTypeStatic.filter((meal, index) => index < 3);
   const displayImage = breakfast.map((recipe) => {
     return (
-      <div className="eachImage col">
-        <img src={recipe.image}></img>
-        <p className="cuisines">
-          {recipe.cuisines[0] !== undefined
-            ? `${recipe.cuisines[0]}, ${recipe.cuisines[1]}, ${recipe.cuisines[2]}`
-            : `${recipe.dishTypes[0]} `}
-        </p>
-        <p className="title">{recipe.title}</p>
-      </div>
+      <Card
+        image={recipe.image}
+        cuisines={recipe.cuisines}
+        dishTypes={recipe.dishTypes}
+        title={recipe.title}
+      ></Card>
     );
   });
 

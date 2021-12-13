@@ -23,6 +23,7 @@ const Ingredient = () => {
     <div className="container ingredientContainer">
       <h2>Ingredients</h2>
       <div className="row">
+        {/* TO SPLIT INTO TABLE INSTEAD */}
         <div className="col-6">{displayIngredientsLeft}</div>
         <div className="col-6">{displayIngredientsRight}</div>
       </div>

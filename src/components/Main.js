@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MealType from "./MealType";
 import SearchArea from "./search_section/SearchArea";
 import Recipe from "./recipe/Recipe";
+import SearchResults from "./search_results/SearchResults";
 
 const Main = () => {
   const [query, setQuery] = useState();
@@ -57,6 +58,9 @@ const Main = () => {
       </div>
       <div className="row">
         <Recipe></Recipe>
+      </div>
+      <div className="row">
+        <SearchResults></SearchResults>
       </div>
     </div>
   );
