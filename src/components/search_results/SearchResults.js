@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 import GetDataUrl from "../../hooks/GetDataUrl";
+import { advancedSearchActions } from "../../store/advancedSearch";
 
 const SearchResults = (props) => {
   const dispatch = useDispatch();
@@ -15,7 +16,6 @@ const SearchResults = (props) => {
   const getResults = async (url) => {
     const data = await fetch(url);
     const parsedData = await data.json();
-    console.log("results", parsedData.results);
     setQueryResults(parsedData.results);
   };
 
@@ -25,12 +25,12 @@ const SearchResults = (props) => {
       getResults(url);
     } else if (searchType === "advanced") {
       const url = GetDataUrl(searchType, advancedSearch);
-      console.log("advanced search");
-      console.log(url);
       getResults(url);
     }
 
-    return () => {};
+    return () => {
+      dispatch(advancedSearchActions.reset());
+    };
   }, [searchType]);
 
   // PRINTING CARDS
