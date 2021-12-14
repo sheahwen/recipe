@@ -3,8 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../Card";
 import GetDataUrl from "../../hooks/GetDataUrl";
 import { advancedSearchActions } from "../../store/advancedSearch";
+import { inputSearchActions } from "../../store/inputSearch";
 
 const SearchResults = (props) => {
+  // REDUX AND STATES
   const dispatch = useDispatch();
   const searchType = useSelector((state) => state.searchType.type);
   const inputSearch = useSelector((state) => state.inputSearch.input);
@@ -12,10 +14,10 @@ const SearchResults = (props) => {
   const [queryResults, setQueryResults] = useState([]);
 
   // CALLING API TO GET SEARCH RESULTS
-
   const getResults = async (url, { signal }) => {
     const data = await fetch(url, { signal });
     const parsedData = await data.json();
+    console.log(parsedData.results);
     setQueryResults(parsedData.results);
   };
 
@@ -29,9 +31,12 @@ const SearchResults = (props) => {
       getResults(url, controller.signal);
     }
 
+    // CLEAN UP CODES - RESET ALL SEARCH RELATED STATES AND STOP FETCH
     return () => {
       controller.abort();
       dispatch(advancedSearchActions.reset());
+      // ??????is this necesary??????????
+      dispatch(inputSearchActions.reset());
     };
   }, [searchType, inputSearch]);
 
@@ -44,10 +49,13 @@ const SearchResults = (props) => {
           cuisines={recipe.cuisines}
           dishTypes={recipe.dishTypes}
           title={recipe.title}
+          id={recipe.id}
         ></Card>
       )
     );
   });
+
+  // ROUTING TO RECIPE PAGE here???
 
   const createCardsBottom = queryResults.map((recipe, index) => {
     return (

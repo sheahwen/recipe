@@ -375,6 +375,10 @@ STYLE CARD OVERLAY */
   transition: 0.5s ease;
 }
 
+.imageContainer a {
+  text-decoration: none;
+}
+
 .imageContainer:hover img {
   opacity: 0.3;
 }

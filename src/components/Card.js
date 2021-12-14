@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { recipeActions } from "../store/recipe";
 
 const Card = (props) => {
   // LOGICS FOR PRINTING OF CUISINES
@@ -15,14 +18,22 @@ const Card = (props) => {
   }
   cuisineStr = cuisineStr.slice(0, -2);
 
-  // END
+  // HANDLE CLICK => ROUTE TO RECIPE PAGE
+  const dispatch = useDispatch();
+  const handleClick = (event) => {
+    dispatch(recipeActions.setId(event.target.id));
+  };
 
   return (
     <div className="eachImage col-4" id={props.id}>
       <div class="imageContainer">
         <img src={props.image}></img>
         <div class="overlay">
-          <div class="text">See recipe</div>
+          <Link to="/recipe">
+            <div class="text" id={props.id} onClick={handleClick}>
+              See recipe
+            </div>
+          </Link>
         </div>
         <p className="cuisines">{cuisineStr}</p>
         <p className="title">{props.title}</p>

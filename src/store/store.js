@@ -4,6 +4,7 @@ import inputSearchReducer from "./inputSearch";
 import inputSuggestionsReducer from "./inputSuggestions";
 import searchTypeReducer from "./searchType";
 import advancedSearchReducer from "./advancedSearch";
+import recipeReducer from "./recipe";
 
 const store = configureStore({
   reducer: {
@@ -11,6 +12,7 @@ const store = configureStore({
     inputSuggestions: inputSuggestionsReducer,
     searchType: searchTypeReducer,
     advancedSearch: advancedSearchReducer,
+    recipe: recipeReducer,
   },
 });
 

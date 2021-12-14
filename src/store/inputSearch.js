@@ -7,6 +7,9 @@ const inputSearch = createSlice({
     setInputSearch(state, action) {
       state.input = action.payload;
     },
+    reset(state) {
+      state.input = "";
+    },
   },
 });
 
