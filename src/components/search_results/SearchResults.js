@@ -13,25 +13,27 @@ const SearchResults = (props) => {
 
   // CALLING API TO GET SEARCH RESULTS
 
-  const getResults = async (url) => {
-    const data = await fetch(url);
+  const getResults = async (url, { signal }) => {
+    const data = await fetch(url, { signal });
     const parsedData = await data.json();
     setQueryResults(parsedData.results);
   };
 
   useEffect(() => {
+    const controller = new AbortController();
     if (searchType === "name") {
       const url = GetDataUrl(searchType, inputSearch);
-      getResults(url);
+      getResults(url, controller.signal);
     } else if (searchType === "advanced") {
       const url = GetDataUrl(searchType, advancedSearch);
-      getResults(url);
+      getResults(url, controller.signal);
     }
 
     return () => {
+      controller.abort();
       dispatch(advancedSearchActions.reset());
     };
-  }, [searchType]);
+  }, [searchType, inputSearch]);
 
   // PRINTING CARDS
   const createCardsTop = queryResults.map((recipe, index) => {
