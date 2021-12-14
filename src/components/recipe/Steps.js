@@ -28,7 +28,7 @@ const Steps = (props) => {
 
   return (
     <div className="stepsContainer">
-      <h2>Steps</h2>
+      <h2>Instructions</h2>
       {printSteps}
     </div>
   );

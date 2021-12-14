@@ -1,6 +1,13 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { advancedSearchActions } from "../../store/advancedSearch";
+import { useState } from "react";
 
 const MealTypeSearch = () => {
+  const dispatch = useDispatch();
+  const typeSelected = useSelector((state) => state.advancedSearch.mealType);
+  const [lastSelected, setLastSelected] = useState();
+
   const mealTypeArr = [
     "main course",
     "side dish",
@@ -17,19 +24,33 @@ const MealTypeSearch = () => {
     "snack",
     "drink",
   ];
+
+  const handleClick = (event) => {
+    dispatch(advancedSearchActions.setMealType(event.target.innerText));
+    event.target.className = "searchBullet";
+    if (lastSelected !== undefined) {
+      lastSelected.className = "criteriaBullet";
+    }
+    setLastSelected(event.target);
+  };
+
   const firstHalf = mealTypeArr.filter((type, index) => index < 7);
   const secondHalf = mealTypeArr.filter((type, index) => index > 7);
   const displayFirstHalf = firstHalf.map((type) => {
     return (
       <>
-        <p className="criteriaBullet">{type}</p>
+        <p className="criteriaBullet" onClick={handleClick}>
+          {type}
+        </p>
       </>
     );
   });
   const displaySecondHalf = secondHalf.map((type) => {
     return (
       <>
-        <p className="criteriaBullet">{type}</p>
+        <p className="criteriaBullet" onClick={handleClick}>
+          {type}
+        </p>
       </>
     );
   });

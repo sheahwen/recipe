@@ -42,6 +42,7 @@ const Recipe = () => {
         <div className="row">
           <Steps stepsData={stepsObj}></Steps>
         </div>
+        <button className="favourites">Add to favourites</button>
       </div>
     </>
   );

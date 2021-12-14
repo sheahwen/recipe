@@ -2,8 +2,16 @@ import React from "react";
 import IngredientsSearch from "./IngredientsSearch";
 import DietSearch from "./DietSearch";
 import MealTypeSearch from "./MealTypeSearch";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { searchTypeActions } from "../../store/searchType";
 
 const SearchArea = () => {
+  const dispatch = useDispatch();
+  const handleSearchButton = () => {
+    dispatch(searchTypeActions.setSearchType("advanced"));
+  };
+
   return (
     <div id="searchArea">
       <p id="advancedText">Advanced Filters</p>
@@ -31,7 +39,9 @@ const SearchArea = () => {
           </div>
         </div>
       </div>
-      <button>Search</button>
+      <Link to="/search-results">
+        <button onClick={handleSearchButton}>Search</button>
+      </Link>
     </div>
   );
 };
