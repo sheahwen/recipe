@@ -39,9 +39,17 @@ const SearchArea = () => {
           </div>
         </div>
       </div>
-      <Link to="/search-results">
-        <button onClick={handleSearchButton}>Search</button>
-      </Link>
+      <div className="buttonDiv">
+        <Link to="/search-results">
+          <button
+            type="button"
+            className="btn btn-outline-secondary"
+            onClick={handleSearchButton}
+          >
+            Search
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };

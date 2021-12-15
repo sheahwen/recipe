@@ -18,6 +18,8 @@ const Ingredient = () => {
     }
   }
 
+  const handleCart = () => {};
+
   const displayIngredients = ingredientListPair.map((ingredientPair) => {
     if (ingredientPair[1] !== undefined) {
       return (
@@ -26,13 +28,13 @@ const Ingredient = () => {
           <td className="ingredientQuantity">{ingredientPair[0][1]}</td>
           <td className="ingredientUnit">{ingredientPair[0][2]}</td>
           <td>
-            <button>Add</button>
+            <i className="fa fa-cart-plus" onClick={handleCart}></i>
           </td>
           <td className="ingredientName">{ingredientPair[1][0]}</td>
           <td className="ingredientQuantity">{ingredientPair[1][1]}</td>
           <td className="ingredientUnit">{ingredientPair[1][2]}</td>
           <td>
-            <button>Add</button>
+            <i className="fa fa-cart-plus" onClick={handleCart}></i>
           </td>
         </tr>
       );
@@ -43,7 +45,7 @@ const Ingredient = () => {
           <td className="ingredientQuantity">{ingredientPair[0][1]}</td>
           <td className="ingredientUnit">{ingredientPair[0][2]}</td>
           <td>
-            <button>Add</button>
+            <i className="fa fa-cart-plus" onClick={handleCart}></i>
           </td>
           <td></td>
           <td></td>

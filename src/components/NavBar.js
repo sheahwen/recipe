@@ -4,6 +4,7 @@ import { inputSearchActions } from "../store/inputSearch";
 import { inputSuggestionsActions } from "../store/inputSuggestions";
 import { searchTypeActions } from "../store/searchType";
 import { NavLink } from "react-router-dom";
+import { mealSearchActions } from "../store/mealSearch";
 
 const NavBar = () => {
   const dispatch = useDispatch();
@@ -22,12 +23,61 @@ const NavBar = () => {
     setInput(event.target.value);
   };
 
+  const handleMealClick = (event) => {
+    console.log(event.target.innerHTML);
+    dispatch(mealSearchActions.setMealSearch(event.target.innerHTML));
+  };
+
   return (
     <nav>
+      {/* <a>
+        <img src="broccoli.png" alt="logo"></img>
+      </a> */}
       <NavLink to="/">Home</NavLink>
-      <NavLink to="/meal-type">Meal type</NavLink>
+      <div className="dropdown">
+        <NavLink to="/meal-type" id="typeOnBar">
+          Meal type
+        </NavLink>
+        <div className="dropdownMeals">
+          <NavLink
+            className="mealRef"
+            to="/selected-meal"
+            onClick={handleMealClick}
+          >
+            main course
+          </NavLink>
+          <NavLink
+            className="mealRef"
+            to="/selected-meal"
+            onClick={handleMealClick}
+          >
+            dessert
+          </NavLink>
+          <NavLink
+            className="mealRef"
+            to="/selected-meal"
+            onClick={handleMealClick}
+          >
+            appetizer
+          </NavLink>
+          <NavLink
+            className="mealRef"
+            to="/selected-meal"
+            onClick={handleMealClick}
+          >
+            salad
+          </NavLink>
+          <NavLink
+            className="mealRef"
+            to="/selected-meal"
+            onClick={handleMealClick}
+          >
+            beverage
+          </NavLink>
+        </div>
+      </div>
       <NavLink to="/shopping-list">Shopping List</NavLink>
-      <NavLink to="/favorites">Favourites</NavLink>
+      <NavLink to="/favourites">Favourites</NavLink>
       <div id="inputDiv">
         <input
           placeholder="Search Recipes"

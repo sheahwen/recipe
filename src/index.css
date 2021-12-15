@@ -22,6 +22,10 @@ nav a {
   cursor: pointer;
 }
 
+nav a:hover {
+  color: black;
+}
+
 nav #inputDiv {
   height: 28px;
   width: 200px;
@@ -49,6 +53,47 @@ nav i {
   cursor: pointer;
 }
 
+nav img {
+  object-fit: cover;
+}
+
+/* for the dropdown list */
+nav .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+nav .dropdownMeals {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 3;
+}
+
+nav .dropdownMeals a {
+  display: block;
+  line-height: 10px;
+  padding-bottom: 5px;
+  width: 100%;
+}
+
+/* action when hovered over meal type */
+.dropdown:hover .dropdownMeals {
+  display: block;
+}
+
+.dropdown:hover {
+  /* background-color: rgba(0, 0, 0, 0.1); */
+  background-image: url(https://images.creativemarket.com/0.1.0/ps/10208026/3024/2000/m1/fpnw/wm0/cute-food-image-cm-.jpg?1618498803&s=3a3235895685e473cfa1ca260c33929f);
+  background-size: cover;
+}
+
+.dropdownMeals a:hover {
+  font-size: 17px;
+}
+
 /* ----------------------------------------- */
 /* for main page display of top recipes */
 
@@ -56,9 +101,26 @@ nav i {
   background-color: white;
 }
 
-.mealTypeContainer h2 {
-  margin-top: 30px;
+.titleSeeMore {
+  display: flex;
   font-family: "Amethysta", serif;
+  justify-content: space-between;
+  margin-top: 30px;
+  align-items: flex-end;
+}
+
+.titleSeeMore p {
+  font-size: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  color: rgba(43, 75, 64);
+}
+
+.titleSeeMore p:hover {
+  text-decoration: underline;
+}
+
+.mealTypeContainer h2 {
   font-weight: 500;
   font-size: 25px;
   color: rgba(43, 75, 64);
@@ -86,6 +148,18 @@ nav i {
 }
 .eachImage .title:hover {
   overflow: visible;
+}
+
+/* SELECTED MEAL */
+.mealTypeStr {
+  font-family: "Amethysta", serif;
+  color: rgba(43, 75, 64);
+  font-weight: 400;
+  font-size: 50px;
+}
+
+.selectedMealContainer {
+  margin-top: 30px;
 }
 
 /* --------------------------------------------- */
@@ -173,6 +247,18 @@ nav i {
   cursor: pointer;
 }
 
+#searchArea .buttonDiv {
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+#searchArea .btn {
+  padding-bottom: 10px;
+  border: rgba(0, 0, 0, 0.2) solid 1px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
 /* ------------------------------------
 styling recipe */
 .recipe {
@@ -184,7 +270,9 @@ styling recipe */
 }
 
 .recipe .recipeUpper {
-  border: 2px black solid;
+  /* border: 2px black solid; */
+  border: none;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .recipe #recipeTitle {
@@ -209,6 +297,22 @@ styling recipe */
 
 .recipe #timeServing p {
   display: inline;
+}
+
+.recipe .favouritesDiv {
+  justify-content: center;
+}
+.recipe .favouritesButton {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  background-color: rgba(147, 166, 66);
+  font-size: 14px;
+  color: white;
+  height: 31px;
+  width: 25%;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
 }
 
 /* ------------------------------
@@ -241,7 +345,8 @@ STYLING RADAR CHART */
 }
 
 .in {
-  background-color: rgba(180, 140, 89, 0.7);
+  /* background-color: rgba(180, 140, 89, 0.7); */
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .chart {
@@ -296,8 +401,8 @@ STYLE INGREDIENT LIST IN RECIPE */
   margin-top: 40px;
 }
 
-.ingredientContainer .cart {
-  padding-left: 20px;
+.ingredientContainer .fa-shopping-cart {
+  color: black;
 }
 
 .ingredientQuantity {
@@ -308,19 +413,36 @@ STYLE INGREDIENT LIST IN RECIPE */
   text-align: left;
 }
 
+.ingredientContainer .fa-cart-plus {
+  color: rgb(83, 166, 66);
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.ingredientContainer .fa-cart-plus:hover {
+  font-size: 22px;
+}
+
 /* -----------------------------
 STYLE STEPS IN RECIPE */
 
 .stepsContainer {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(256, 256, 256, 0.9);
+  margin: auto;
   margin-top: 50px;
+  width: 90%;
+}
+
+.stepsRow {
+  background-image: url("https://media.istockphoto.com/vectors/kitchen-seamless-pattern-vector-background-vector-id475511846?k=20&m=475511846&s=612x612&w=0&h=h9lLBXEbEiTFVn7ZXyFtIJBFZXrpiXM8MBALubJndNM=");
 }
 
 .stepsContainer h2 {
   font-weight: 500;
   font-size: 25px;
   text-align: left;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  padding-bottom: 25px;
   border-bottom: black solid 2px;
   margin-bottom: 40px;
 }
@@ -333,6 +455,19 @@ STYLE STEPS IN RECIPE */
 .stepsContainer li {
   font-weight: 400;
   font-size: 16px;
+  list-style-type: none;
+  counter-increment: item;
+}
+
+.stepsContainer li:before {
+  content: counter(item);
+  margin-right: 5px;
+  font-size: 80%;
+  background-color: rgba(254, 244, 157);
+  color: rgba(43, 75, 64);
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 3px;
 }
 
 /* ------------------------------

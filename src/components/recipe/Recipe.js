@@ -1,12 +1,31 @@
 import React from "react";
-import MealTypeStatic from "../data/MealTypeStatic";
 import Ingredient from "./Ingredient";
 import RadarChart from "./RadarChart";
 import Steps from "./Steps";
+import { useDispatch, useSelector } from "react-redux";
+import { favouritesActions } from "../../store/favourites";
 
 const Recipe = () => {
-  const recipeObj = MealTypeStatic[0];
+  const recipeObj = useSelector((state) => state.selectedRecipe.recipe);
+  const existingFavourites = useSelector((state) => state.favourites.recipes);
   const stepsObj = recipeObj.analyzedInstructions[0].steps;
+  const recipeId = recipeObj.id;
+
+  //Add to favourites
+  //Add to favourites - Check existing favourites
+  const checkExisting = (recipeId) => {
+    const match = existingFavourites.find((recipes) => recipes.id === recipeId);
+    if (match === undefined) {
+      return false;
+    } else return true;
+  };
+  const dispatch = useDispatch();
+  const handleFavourites = () => {
+    if (checkExisting(recipeId) === false) {
+      dispatch(favouritesActions.addFavourites(recipeObj));
+      console.log("is a new recipe!");
+    }
+  };
 
   return (
     <>
@@ -29,20 +48,25 @@ const Recipe = () => {
                 </div>
                 <div>
                   <i className="fa fa-cutlery"></i>
-                  <p>{recipeObj.servings} servings</p>
+                  <p>Serves {recipeObj.servings}</p>
                 </div>
               </div>
-              <RadarChart></RadarChart>
+              <RadarChart recipeId={recipeId}></RadarChart>
             </div>
           </div>
         </div>
         <div className="row ingredients">
           <Ingredient></Ingredient>
         </div>
-        <div className="row">
+        <div className="row stepsRow">
           <Steps stepsData={stepsObj}></Steps>
         </div>
-        <button className="favourites">Add to favourites</button>
+        <div className="row favouritesDiv">
+          <button className="favouritesButton" onClick={handleFavourites}>
+            {checkExisting(recipeId) ? "Favourited" : "Add to favourites"}
+          </button>
+          {console.log(checkExisting(recipeId))}
+        </div>
       </div>
     </>
   );

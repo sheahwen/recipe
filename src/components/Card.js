@@ -22,6 +22,7 @@ const Card = (props) => {
   const dispatch = useDispatch();
   const handleClick = (event) => {
     dispatch(recipeActions.setId(event.target.id));
+    props.liftingId(event.target.id);
   };
 
   return (

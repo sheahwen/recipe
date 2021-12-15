@@ -17,7 +17,10 @@ const MealType = () => {
 
   return (
     <div className="container mealTypeContainer">
-      <h2 id="typeOne">Breakfast</h2>
+      <div className="titleSeeMore">
+        <h2 id="typeOne">Breakfast</h2>
+        <p>See more</p>
+      </div>
       <div className="eachType row">{displayImage}</div>
       <h2 id="typeTwo">Main course </h2>
       <div className="eachType row">

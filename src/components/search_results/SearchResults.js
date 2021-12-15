@@ -4,6 +4,7 @@ import Card from "../Card";
 import GetDataUrl from "../../hooks/GetDataUrl";
 import { advancedSearchActions } from "../../store/advancedSearch";
 import { inputSearchActions } from "../../store/inputSearch";
+import { selectedRecipeActions } from "../../store/selectedRecipe";
 
 const SearchResults = (props) => {
   // REDUX AND STATES
@@ -13,11 +14,19 @@ const SearchResults = (props) => {
   const advancedSearch = useSelector((state) => state.advancedSearch);
   const [queryResults, setQueryResults] = useState([]);
 
+  // LIFT ID FROM CARDS
+  const handleLift = (clickedId) => {
+    const recipeSelected = queryResults.find(
+      (recipe) => recipe.id === Number(clickedId)
+    );
+    console.log(recipeSelected);
+    dispatch(selectedRecipeActions.setRecipe(recipeSelected));
+  };
+
   // CALLING API TO GET SEARCH RESULTS
   const getResults = async (url, { signal }) => {
     const data = await fetch(url, { signal });
     const parsedData = await data.json();
-    console.log(parsedData.results);
     setQueryResults(parsedData.results);
   };
 
@@ -50,12 +59,11 @@ const SearchResults = (props) => {
           dishTypes={recipe.dishTypes}
           title={recipe.title}
           id={recipe.id}
+          liftingId={handleLift}
         ></Card>
       )
     );
   });
-
-  // ROUTING TO RECIPE PAGE here???
 
   const createCardsBottom = queryResults.map((recipe, index) => {
     return (
@@ -65,6 +73,8 @@ const SearchResults = (props) => {
           cuisines={recipe.cuisines}
           dishTypes={recipe.dishTypes}
           title={recipe.title}
+          id={recipe.id}
+          liftingId={handleLift}
         ></Card>
       )
     );

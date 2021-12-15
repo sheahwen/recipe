@@ -5,6 +5,10 @@ import inputSuggestionsReducer from "./inputSuggestions";
 import searchTypeReducer from "./searchType";
 import advancedSearchReducer from "./advancedSearch";
 import recipeReducer from "./recipe";
+import selectedRecipeReducer from "./selectedRecipe";
+import mealSearchReducer from "./mealSearch";
+import favouritesReducer from "./favourites";
+import cartReducer from "./cart";
 
 const store = configureStore({
   reducer: {
@@ -13,6 +17,10 @@ const store = configureStore({
     searchType: searchTypeReducer,
     advancedSearch: advancedSearchReducer,
     recipe: recipeReducer,
+    selectedRecipe: selectedRecipeReducer,
+    mealSearch: mealSearchReducer,
+    favourites: favouritesReducer,
+    cart: cartReducer,
   },
 });
 

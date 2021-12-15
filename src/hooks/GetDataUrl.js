@@ -1,6 +1,14 @@
 const GetDataUrl = (queryType, searches) => {
   const SEARCHURL = "https://api.spoonacular.com/recipes/";
-  const APIKEY = "66f8a7f03d564fb9967240266bb00633";
+
+  // GMAIL API
+  // const APIKEY = "66f8a7f03d564fb9967240266bb00633";
+
+  // HOTMAIL API
+  // const APIKEY = "376146a5650745a9bc00b30e05594940";
+
+  //SLIDES API
+  const APIKEY = "d6316bacde6041398385e73ba49a1ca9";
 
   // 4 types of searches
   // search through input bar
@@ -25,9 +33,8 @@ const GetDataUrl = (queryType, searches) => {
   }
   // search through advanced search
 
-  if ((queryType = "advanced")) {
+  if (queryType === "advanced") {
     const searchType = "complexSearch?";
-    console.log("get chicken");
 
     // Advanced Searche - ingredients
     const ingredientsArr = searches.ingredients;
@@ -98,9 +105,51 @@ const GetDataUrl = (queryType, searches) => {
   // search for steps for particular recipe id
   // search for taste
   if (queryType === "taste") {
-    const searchId = searches.id;
+    const searchId = searches;
     const searchType = "tasteWidget.json?";
     const url = SEARCHURL + searchId + "/" + searchType + "apiKey=" + APIKEY;
+    return url;
+  }
+
+  // search for meal - 6 popular
+  if (queryType === "mealPopular") {
+    const searchType = "complexSearch?";
+    console.log("searches", searches);
+    let mealTypeStr = "type=" + searches.replace(" ", "+");
+    const NUMBER = "&number=6";
+    const DETAILS = "&addRecipeInformation=true";
+    const SORT = "&sort=popularity";
+
+    const url =
+      SEARCHURL +
+      searchType +
+      "apiKey=" +
+      APIKEY +
+      "&" +
+      mealTypeStr +
+      NUMBER +
+      DETAILS +
+      SORT;
+    return url;
+  }
+  // search for meal - 6 random
+  if (queryType === "mealRandom") {
+    const searchType = "complexSearch?";
+    let mealTypeStr = "type=" + searches.replace(" ", "+");
+    const NUMBER = "&number=6";
+    const DETAILS = "&addRecipeInformation=true";
+    const SORT = "&sort=random";
+
+    const url =
+      SEARCHURL +
+      searchType +
+      "apiKey=" +
+      APIKEY +
+      "&" +
+      mealTypeStr +
+      NUMBER +
+      DETAILS +
+      SORT;
     return url;
   }
 };
