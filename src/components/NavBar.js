@@ -1,17 +1,14 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { inputSearchActions } from "../store/inputSearch";
-import { inputSuggestionsActions } from "../store/inputSuggestions";
 import { searchTypeActions } from "../store/searchType";
 import { NavLink } from "react-router-dom";
 import { mealSearchActions } from "../store/mealSearch";
+import Logo from "./broccoli.png";
 
 const NavBar = () => {
   const dispatch = useDispatch();
   const inputSearch = useSelector((state) => state.inputSearch.input);
-  const inputSuggestions = useSelector(
-    (state) => state.inputSuggestions.suggestions
-  );
   const [input, setInput] = useState("");
 
   const updateInput = () => {
@@ -30,9 +27,7 @@ const NavBar = () => {
 
   return (
     <nav>
-      {/* <a>
-        <img src="broccoli.png" alt="logo"></img>
-      </a> */}
+      <img src={Logo}></img>
       <NavLink to="/">Home</NavLink>
       <div className="dropdown">
         <NavLink to="/meal-type" id="typeOnBar">

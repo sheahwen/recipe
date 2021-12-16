@@ -85,7 +85,17 @@ const SearchResults = (props) => {
     if (searchType === "name") {
       return inputSearch;
     } else if (searchType === "advanced") {
-      return "do later";
+      let searchStr = "";
+      if (advancedSearch.ingredients.length !== 0) {
+        searchStr += "ingredients";
+      }
+      if (advancedSearch.diet.length !== 0) {
+        searchStr += "diet";
+      }
+      if (advancedSearch.mealType !== "") {
+        searchStr += "mealType";
+      }
+      return searchStr;
     }
   };
   const titleSpan = titleSpanFunction();

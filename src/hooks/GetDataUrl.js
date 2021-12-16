@@ -5,10 +5,10 @@ const GetDataUrl = (queryType, searches) => {
   // const APIKEY = "66f8a7f03d564fb9967240266bb00633";
 
   // HOTMAIL API
-  // const APIKEY = "376146a5650745a9bc00b30e05594940";
+  const APIKEY = "376146a5650745a9bc00b30e05594940";
 
   //SLIDES API
-  const APIKEY = "d6316bacde6041398385e73ba49a1ca9";
+  // const APIKEY = "d6316bacde6041398385e73ba49a1ca9";
 
   // 4 types of searches
   // search through input bar
@@ -158,6 +158,27 @@ const GetDataUrl = (queryType, searches) => {
       NUMBER +
       DETAILS +
       SORT;
+    return url;
+  }
+
+  // search for taste
+  if (queryType === "topThree") {
+    const searchType = "complexSearch?";
+    const NUMBER = "&number=3";
+    const DETAILS = "&addRecipeInformation=true";
+    const SORT = "&sort=random";
+
+    const url =
+      SEARCHURL + searchType + "apiKey=" + APIKEY + NUMBER + DETAILS + SORT;
+    return url;
+  }
+
+  if (queryType === "autocomplete") {
+    const searchType = "autocomplete?";
+    const NUMBER = "&number=6";
+    const queryStr = "&query=" + searches;
+
+    const url = SEARCHURL + searchType + "apiKey=" + APIKEY + NUMBER + queryStr;
     return url;
   }
 };

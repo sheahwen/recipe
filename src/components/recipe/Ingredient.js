@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import GetDataUrl from "../../hooks/GetDataUrl";
 import IngredientStatic from "../data/IngredientStatic";
+import { useDispatch } from "react-redux";
+import { cartActions } from "../../store/cart";
 
 const Ingredient = (props) => {
+  const dispatch = useDispatch();
   const [ingredientsArr, setIngredientsArr] = useState([]);
   const URL = GetDataUrl("ingredients", props.recipeId);
 
@@ -34,20 +37,22 @@ const Ingredient = (props) => {
 
   const handleCart = (event) => {
     console.log("row is clicked");
-    const ingredientClicked = {};
-    const cart = event.target;
-    ingredientClicked.name =
-      cart.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
-    ingredientClicked.quantity =
-      cart.parentNode.previousElementSibling.previousElementSibling.innerText;
-    ingredientClicked.unit = cart.parentNode.previousElementSibling.innerText;
 
     if (event.target.className === "fa fa-cart-plus") {
-      // do something
+      // get ingredient information
+      const ingredientClicked = {};
+      const cart = event.target;
+      ingredientClicked.name =
+        cart.parentNode.previousElementSibling.previousElementSibling.previousElementSibling.innerText;
+      ingredientClicked.quantity =
+        cart.parentNode.previousElementSibling.previousElementSibling.innerText;
+      ingredientClicked.unit = cart.parentNode.previousElementSibling.innerText;
+
+      dispatch(cartActions.addIngredient(ingredientClicked));
     }
   };
 
-  const displayIngredients = ingredientListPair.map((ingredientPair) => {
+  const displayIngredients = ingredientListPair.map((ingredientPair, index) => {
     if (ingredientPair[1] !== undefined) {
       return (
         <tr onClick={handleCart}>
@@ -104,6 +109,7 @@ const Ingredient = (props) => {
           </thead>
           <tbody>{displayIngredients}</tbody>
         </table>
+        {}
       </div>
     </div>
   );

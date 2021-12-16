@@ -29,45 +29,48 @@ const Recipe = () => {
 
   return (
     <>
-      <div className="container recipe">
-        <div className="row recipeUpper">
-          <div className="col-5">
-            <img src={recipeObj.image}></img>
-          </div>
-          <div className="col-7">
-            <h2 id="recipeTitle">{recipeObj.title}</h2>
-            <div className="timeChart">
-              <div id="timeServing">
-                <div>
-                  <i className="fa fa-cog"></i>
-                  <p>{recipeObj.preparationMinutes} min</p>
+      {recipeId === "" && <h2>No recipe selected</h2>}
+      {recipeId !== undefined && (
+        <div className="container recipe">
+          <div className="row recipeUpper">
+            <div className="col-5">
+              <img src={recipeObj.image}></img>
+            </div>
+            <div className="col-7">
+              <h2 id="recipeTitle">{recipeObj.title}</h2>
+              <div className="timeChart">
+                <div id="timeServing">
+                  <div>
+                    <i className="fa fa-cog"></i>
+                    <p>{recipeObj.preparationMinutes} min</p>
+                  </div>
+                  <div>
+                    <i className="fa fa-clock-o"></i>
+                    <p>{recipeObj.readyInMinutes} min</p>
+                  </div>
+                  <div>
+                    <i className="fa fa-cutlery"></i>
+                    <p>Serves {recipeObj.servings}</p>
+                  </div>
                 </div>
-                <div>
-                  <i className="fa fa-clock-o"></i>
-                  <p>{recipeObj.readyInMinutes} min</p>
-                </div>
-                <div>
-                  <i className="fa fa-cutlery"></i>
-                  <p>Serves {recipeObj.servings}</p>
-                </div>
+                <RadarChart recipeId={recipeId}></RadarChart>
               </div>
-              <RadarChart recipeId={recipeId}></RadarChart>
             </div>
           </div>
+          <div className="row ingredients">
+            <Ingredient recipeId={recipeId}></Ingredient>
+          </div>
+          <div className="row stepsRow">
+            <Steps stepsData={stepsObj}></Steps>
+          </div>
+          <div className="row favouritesDiv">
+            <button className="favouritesButton" onClick={handleFavourites}>
+              {checkExisting(recipeId) ? "Favourited" : "Add to favourites"}
+            </button>
+            {console.log(checkExisting(recipeId))}
+          </div>
         </div>
-        <div className="row ingredients">
-          <Ingredient recipeId={recipeId}></Ingredient>
-        </div>
-        <div className="row stepsRow">
-          <Steps stepsData={stepsObj}></Steps>
-        </div>
-        <div className="row favouritesDiv">
-          <button className="favouritesButton" onClick={handleFavourites}>
-            {checkExisting(recipeId) ? "Favourited" : "Add to favourites"}
-          </button>
-          {console.log(checkExisting(recipeId))}
-        </div>
-      </div>
+      )}
     </>
   );
 };
