@@ -6,7 +6,6 @@ const RadarChart = (props) => {
   // CALLING API FOR TASTE
   const recipeId = props.recipeId;
   const URL = GetDataUrl("taste", recipeId);
-  console.log(recipeId);
   let TasteStatic = {};
 
   const [chartPoints, setChartPoints] = useState({});

@@ -107,6 +107,7 @@ const GetDataUrl = (queryType, searches) => {
     const searchId = searches;
     const searchType = "ingredientWidget.json?";
     const url = SEARCHURL + searchId + "/" + searchType + "apiKey=" + APIKEY;
+    console.log("ingredientsURL", url);
     return url;
   }
 

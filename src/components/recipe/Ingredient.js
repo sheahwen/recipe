@@ -1,13 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import GetDataUrl from "../../hooks/GetDataUrl";
 import IngredientStatic from "../data/IngredientStatic";
 
-const Ingredient = () => {
-  const ingredientArrObj = IngredientStatic;
-  const ingredientList = ingredientArrObj.map((ingredient) => [
+const Ingredient = (props) => {
+  const [ingredientsArr, setIngredientsArr] = useState([]);
+  const URL = GetDataUrl("ingredients", props.recipeId);
+
+  const getData = async (url) => {
+    const data = await fetch(url);
+    const parsedData = await data.json();
+    setIngredientsArr(parsedData.ingredients);
+  };
+
+  useEffect(() => {
+    getData(URL);
+  }, []);
+
+  const ingredientList = ingredientsArr.map((ingredient) => [
     ingredient.name,
     Math.round(ingredient.amount.metric.value * 100) / 100,
     ingredient.amount.metric.unit,
   ]);
+
   const ingredientListPair = [];
   for (let i = 0; i < ingredientList.length; i++) {
     if (i % 2 === 0) {
@@ -20,10 +34,6 @@ const Ingredient = () => {
 
   const handleCart = (event) => {
     console.log("row is clicked");
-    let messyStr = "";
-    messyStr = event.currentTarget.innerText;
-    console.log(messyStr);
-    console.log(messyStr[1]);
     const ingredientClicked = {};
     const cart = event.target;
     ingredientClicked.name =
@@ -31,33 +41,13 @@ const Ingredient = () => {
     ingredientClicked.quantity =
       cart.parentNode.previousElementSibling.previousElementSibling.innerText;
     ingredientClicked.unit = cart.parentNode.previousElementSibling.innerText;
-    console.log(ingredientClicked);
 
     if (event.target.className === "fa fa-cart-plus") {
-      //   // get ingredient - position
-      //   const trHTML = event.currentTarget.innerHTML;
-      //   const positions = [0];
-      //   console.log("current target", trHTML);
-      //   for (let i = 0; i < 3; i++) {
-      //     positions.push(
-      //       trHTML.indexOf("<td ", positions[positions.length - 1] + 1)
-      //     );
-      //   }
-      //   if (positions[positions.length - 1] !== -1) {
-      //     for (let i = 0; i < 3; i++) {
-      //       positions.push(
-      //         trHTML.indexOf("<td ", positions[positions.length - 1] + 1)
-      //       );
-      //     }
-      //   }
-      //   positions.splice(-1, 1);
-      //   console.log(positions);
-      // get ingredient - info
-      //current target <td class="ingredientName" id="000">cream cheese</td><td class="ingredientQuantity">226.8</td><td class="ingredientUnit">g</td><td><i class="fa fa-cart-plus" id="leftCol"></i></td><td class="ingredientName">diced strawberries</td><td class="ingredientQuantity">180</td><td class="ingredientUnit">g</td><td><i class="fa fa-cart-plus" id="rightCol"></i></td>
+      // do something
     }
   };
 
-  const displayIngredients = ingredientListPair.map((ingredientPair, index) => {
+  const displayIngredients = ingredientListPair.map((ingredientPair) => {
     if (ingredientPair[1] !== undefined) {
       return (
         <tr onClick={handleCart}>
