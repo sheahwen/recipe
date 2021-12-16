@@ -1,0 +1,10 @@
+current target 
+<td class="ingredientName">cream cheese</td>
+<td class="ingredientQuantity">226.8</td>
+<td class="ingredientUnit">g</td>
+<td><i class="fa fa-cart-plus" id="leftCol"></i></td>
+
+<td class="ingredientName">diced strawberries</td>
+<td class="ingredientQuantity">180</td>
+<td class="ingredientUnit">g</td>
+<td><i class="fa fa-cart-plus" id="rightCol"></i></td>

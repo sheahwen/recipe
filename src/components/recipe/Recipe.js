@@ -56,7 +56,7 @@ const Recipe = () => {
           </div>
         </div>
         <div className="row ingredients">
-          <Ingredient></Ingredient>
+          <Ingredient recipeId={recipeId}></Ingredient>
         </div>
         <div className="row stepsRow">
           <Steps stepsData={stepsObj}></Steps>

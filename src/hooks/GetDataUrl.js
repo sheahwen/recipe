@@ -102,7 +102,14 @@ const GetDataUrl = (queryType, searches) => {
     return url;
   }
 
-  // search for steps for particular recipe id
+  // search for ingredients for particular recipe id
+  if (queryType === "ingredients") {
+    const searchId = searches;
+    const searchType = "ingredientWidget.json?";
+    const url = SEARCHURL + searchId + "/" + searchType + "apiKey=" + APIKEY;
+    return url;
+  }
+
   // search for taste
   if (queryType === "taste") {
     const searchId = searches;
