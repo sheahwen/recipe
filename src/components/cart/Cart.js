@@ -1,8 +1,14 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { cartActions } from "../../store/cart";
 
 const Cart = () => {
   const ingredientsArr = useSelector((state) => state.cart.cartIngredients);
+  const dispatch = useDispatch();
+
+  const handleRemove = (event) => {
+    dispatch(cartActions.removeIngredient(event.target.id));
+  };
 
   const displayIngredients = ingredientsArr.map((ingredientObj, index) => {
     return (
@@ -11,7 +17,11 @@ const Cart = () => {
         <td>{ingredientObj.name}</td>
         <td>{ingredientObj.quantity}</td>
         <td>{ingredientObj.unit}</td>
-        <td className="remove">Remove from cart</td>
+        <td>
+          <button className="remove" onClick={handleRemove} id={index}>
+            Remove from cart
+          </button>
+        </td>
       </tr>
     );
   });
@@ -25,7 +35,7 @@ const Cart = () => {
             <th className="col-7">Ingredient</th>
             <th className="col-1">Quantity</th>
             <th className="col-1">Unit</th>
-            <th className="col-2">Remove</th>
+            <th className="col-2">Action</th>
           </tr>
         </thead>
         <tbody>{displayIngredients}</tbody>

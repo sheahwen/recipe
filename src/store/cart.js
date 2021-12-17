@@ -9,8 +9,7 @@ const cart = createSlice({
       state.cartIngredients.push(action.payload);
     },
     removeIngredient(state, action) {
-      const position = state.cartIngredients.indexOf(action.payload);
-      state.cartIngredients.splice(position, 1);
+      state.cartIngredients.splice(action.payload, 1);
     },
   },
 });

@@ -13,7 +13,6 @@ const RadarChart = (props) => {
   const getData = async (url) => {
     const data = await fetch(url);
     const parsedData = await data.json();
-    console.log(parsedData);
     TasteStatic = parsedData;
 
     // TO GENERATE XY COORDINATE
@@ -24,7 +23,6 @@ const RadarChart = (props) => {
     tasteObj.bitter = TasteStatic.bitterness / 100;
     tasteObj.savoury = TasteStatic.savoriness / 100;
     tasteObj.fatty = TasteStatic.fattiness / 100;
-    console.log(tasteObj);
 
     const chartXY = {};
     chartXY.sweet = [50, 50 - 50 * tasteObj.sweet];

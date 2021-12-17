@@ -23,7 +23,18 @@ const Recipe = () => {
   const handleFavourites = () => {
     if (checkExisting(recipeId) === false) {
       dispatch(favouritesActions.addFavourites(recipeObj));
-      console.log("is a new recipe!");
+    }
+  };
+
+  // check for preparation minutes
+  const displayPreparation = () => {
+    if (recipeObj.preparationMinutes !== undefined) {
+      return (
+        <>
+          <i className="fa fa-cog"></i>
+          <p>{recipeObj.preparationMinutes} min</p>
+        </>
+      );
     }
   };
 
@@ -41,8 +52,12 @@ const Recipe = () => {
               <div className="timeChart">
                 <div id="timeServing">
                   <div>
-                    <i className="fa fa-cog"></i>
-                    <p>{recipeObj.preparationMinutes} min</p>
+                    {displayPreparation()}
+                    {/* <i className="fa fa-cog"></i>
+                    <p>
+                      {recipeObj.preparationMinutes}
+                      min
+                    </p> */}
                   </div>
                   <div>
                     <i className="fa fa-clock-o"></i>
@@ -67,7 +82,6 @@ const Recipe = () => {
             <button className="favouritesButton" onClick={handleFavourites}>
               {checkExisting(recipeId) ? "Favourited" : "Add to favourites"}
             </button>
-            {console.log(checkExisting(recipeId))}
           </div>
         </div>
       )}

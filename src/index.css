@@ -97,6 +97,21 @@ nav .dropdownMeals a {
   font-size: 17px;
 }
 
+nav .suggestions {
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  z-index: 3;
+  line-height: 40px;
+  padding: 0 0 2px 20px;
+  width: 100%;
+  cursor: pointer;
+}
+
+nav .suggestions:hover {
+  font-size: 17px;
+}
+
 /* ----------------------------------------- */
 /* for main page display of top recipes */
 
@@ -532,5 +547,18 @@ STYLE CARD OVERLAY */
   height: 40px;
   padding-top: 10px;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+/* -------------------------------------
+styling shopping page */
+.remove {
+  background-color: rgb(252, 92, 52);
+  font-size: 14px;
+  padding: 0 12px 0 12px;
+  color: white;
+  height: 31px;
+  border-radius: 6px;
+  border: none;
   cursor: pointer;
 }

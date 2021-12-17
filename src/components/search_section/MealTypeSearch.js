@@ -1,11 +1,10 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { advancedSearchActions } from "../../store/advancedSearch";
 import { useState } from "react";
 
 const MealTypeSearch = () => {
   const dispatch = useDispatch();
-  const typeSelected = useSelector((state) => state.advancedSearch.mealType);
   const [lastSelected, setLastSelected] = useState();
 
   const mealTypeArr = [

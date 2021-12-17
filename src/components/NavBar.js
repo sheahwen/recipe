@@ -1,17 +1,20 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { inputSearchActions } from "../store/inputSearch";
 import { searchTypeActions } from "../store/searchType";
 import { NavLink } from "react-router-dom";
 import { mealSearchActions } from "../store/mealSearch";
 import Logo from "./broccoli.png";
+import GetDataUrl from "../hooks/GetDataUrl";
 
 const NavBar = () => {
   const dispatch = useDispatch();
-  const inputSearch = useSelector((state) => state.inputSearch.input);
   const [input, setInput] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
 
   const updateInput = () => {
+    setSuggestions([]);
+    setInput("");
     dispatch(inputSearchActions.setInputSearch(input));
     dispatch(searchTypeActions.setSearchType("name"));
   };
@@ -21,9 +24,33 @@ const NavBar = () => {
   };
 
   const handleMealClick = (event) => {
-    console.log(event.target.innerHTML);
     dispatch(mealSearchActions.setMealSearch(event.target.innerHTML));
   };
+
+  const getData = async (url) => {
+    const data = await fetch(url);
+    const parsedData = await data.json();
+    setSuggestions(parsedData.map((obj) => obj.title));
+  };
+
+  useEffect(() => {
+    if (input !== "") {
+      const url = GetDataUrl("autocomplete", input);
+      getData(url);
+    }
+  }, [input]);
+
+  const handleAutocomplete = (event) => {
+    setInput(event.target.innerText);
+  };
+
+  const printSuggestions = suggestions.map((suggestion) => {
+    return (
+      <div className="suggestions" onClick={handleAutocomplete}>
+        {suggestion}
+      </div>
+    );
+  });
 
   return (
     <nav>
@@ -83,6 +110,7 @@ const NavBar = () => {
         <NavLink to="/search-results">
           <i className="fa fa-search" onClick={updateInput}></i>
         </NavLink>
+        {input !== "" && printSuggestions}
       </div>
     </nav>
   );

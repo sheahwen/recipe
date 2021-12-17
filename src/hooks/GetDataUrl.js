@@ -2,10 +2,10 @@ const GetDataUrl = (queryType, searches) => {
   const SEARCHURL = "https://api.spoonacular.com/recipes/";
 
   // GMAIL API
-  // const APIKEY = "66f8a7f03d564fb9967240266bb00633";
+  const APIKEY = "66f8a7f03d564fb9967240266bb00633";
 
   // HOTMAIL API
-  const APIKEY = "376146a5650745a9bc00b30e05594940";
+  // const APIKEY = "376146a5650745a9bc00b30e05594940";
 
   //SLIDES API
   // const APIKEY = "d6316bacde6041398385e73ba49a1ca9";
@@ -38,7 +38,6 @@ const GetDataUrl = (queryType, searches) => {
 
     // Advanced Searche - ingredients
     const ingredientsArr = searches.ingredients;
-    console.log("get chicken");
     let ingredientsStr = "";
     ingredientsArr.forEach((ingredient, index) => {
       if (index !== 0) {
@@ -107,7 +106,6 @@ const GetDataUrl = (queryType, searches) => {
     const searchId = searches;
     const searchType = "ingredientWidget.json?";
     const url = SEARCHURL + searchId + "/" + searchType + "apiKey=" + APIKEY;
-    console.log("ingredientsURL", url);
     return url;
   }
 
@@ -122,7 +120,6 @@ const GetDataUrl = (queryType, searches) => {
   // search for meal - 6 popular
   if (queryType === "mealPopular") {
     const searchType = "complexSearch?";
-    console.log("searches", searches);
     let mealTypeStr = "type=" + searches.replace(" ", "+");
     const NUMBER = "&number=6";
     const DETAILS = "&addRecipeInformation=true";
@@ -175,7 +172,7 @@ const GetDataUrl = (queryType, searches) => {
 
   if (queryType === "autocomplete") {
     const searchType = "autocomplete?";
-    const NUMBER = "&number=6";
+    const NUMBER = "&number=4";
     const queryStr = "&query=" + searches;
 
     const url = SEARCHURL + searchType + "apiKey=" + APIKEY + NUMBER + queryStr;

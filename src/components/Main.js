@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MealType from "./MealType";
 import SearchArea from "./search_section/SearchArea";
 

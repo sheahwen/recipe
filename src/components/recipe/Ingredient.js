@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import GetDataUrl from "../../hooks/GetDataUrl";
-import IngredientStatic from "../data/IngredientStatic";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../store/cart";
 
@@ -36,7 +35,6 @@ const Ingredient = (props) => {
   }
 
   const handleCart = (event) => {
-    console.log("row is clicked");
 
     if (event.target.className === "fa fa-cart-plus") {
       // get ingredient information

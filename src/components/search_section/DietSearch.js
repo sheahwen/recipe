@@ -1,12 +1,11 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import advancedSearch, {
+import React from "react";
+import { useDispatch } from "react-redux";
+import {
   advancedSearchActions,
 } from "../../store/advancedSearch";
 
 const DietSearch = () => {
   const dispatch = useDispatch();
-  const dietSelected = useSelector((state) => state.advancedSearch.mealType);
 
   const handleClick = (event) => {
     if (event.target.className === "criteriaBullet") {

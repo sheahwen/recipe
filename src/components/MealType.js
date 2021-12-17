@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import MealTypeStatic from "./data/MealTypeStatic";
 import Card from "./Card";
 import { useDispatch } from "react-redux";
 import { selectedRecipeActions } from "../store/selectedRecipe";
@@ -11,9 +10,14 @@ const MealType = () => {
   const dispatch = useDispatch();
 
   const handleLift = (clickedId) => {
-    const recipeSelected = queryResults.find(
+    let recipeSelected = queryResults.find(
       (recipe) => recipe.id === Number(clickedId)
     );
+    if (recipeSelected === undefined) {
+      recipeSelected = queryResultsTwo.find(
+        (recipe) => recipe.id === Number(clickedId)
+      );
+    }
     dispatch(selectedRecipeActions.setRecipe(recipeSelected));
   };
 
@@ -23,8 +27,6 @@ const MealType = () => {
     const dataTwo = await fetch(url[1], { signal });
     const parsedDataOne = await dataOne.json();
     const parsedDataTwo = await dataTwo.json();
-    console.log(url[0]);
-    console.log(url[1]);
     setQueryResults(parsedDataOne.results);
     setQueryResultsTwo(parsedDataTwo.results);
   };
@@ -56,7 +58,8 @@ const MealType = () => {
   });
   const createCardsTwo = queryResultsTwo.map((recipe, index) => {
     return (
-      index < 3 && (
+      index < 4 &&
+      index !== 2 && (
         <Card
           image={recipe.image}
           cuisines={recipe.cuisines}
@@ -72,7 +75,7 @@ const MealType = () => {
   return (
     <div className="container mealTypeContainer">
       <div className="titleSeeMore">
-        <h2 id="typeOne">Recipes</h2>
+        <h2 id="typeOne">Recipe ideas</h2>
       </div>
       <div className="eachType row">{createCards}</div>
       <div className="titleSeeMore">
