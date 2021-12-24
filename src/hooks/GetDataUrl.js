@@ -2,10 +2,10 @@ const GetDataUrl = (queryType, searches) => {
   const SEARCHURL = "https://api.spoonacular.com/recipes/";
 
   // GMAIL API
-  const APIKEY = "66f8a7f03d564fb9967240266bb00633";
+  // const APIKEY = "66f8a7f03d564fb9967240266bb00633";
 
   // HOTMAIL API
-  // const APIKEY = "376146a5650745a9bc00b30e05594940";
+  const APIKEY = "376146a5650745a9bc00b30e05594940";
 
   //SLIDES API
   // const APIKEY = "d6316bacde6041398385e73ba49a1ca9";
