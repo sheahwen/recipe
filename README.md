@@ -13,6 +13,7 @@ This app has utilized different technologies for backend and frontend developmen
 - CSS - for general styling
 - Bootstrap - for additional design framework
 - Javascript - for general logic coding
+- HTML - for general website coding
 
 ## App features
 ##### Recipe name search with auto-complete feature
@@ -28,6 +29,11 @@ Advanced filter allows users to search for recipe ideas based on the three crite
 ![image](https://user-images.githubusercontent.com/25454526/148680112-b0ba9232-05db-47c5-85c1-c08f9fd0005b.png)
 
 ##### Shopping cart
-In the recipe page where ingredient list is displayed, users can add their missing ingredients into shopping cart. Users can also subsequently remove the ingredients from there. 
+From ingredient list in recipe page, users can add missing ingredients into shopping cart and delete it subsequently. 
 
 ##### Favourite recipe
+Users can bookmark recipes for future reference. 
+
+## Future expansion
+- display of ingredients based on number of servings
+- link with grocery API
